@@ -58,17 +58,12 @@ export class ClientesComponent implements OnInit {
     } else {
       this.equipamento.contato = this.contatoEquipamento;
     }
-    if (this.equipamento.contato.telefone == null && this.equipamento.contato.email == null) {
-      return false;
-    } else {
-      this.equipamento.contato = this.contatoEquipamento;
-    }
     if (this.equipamento.nome == null && this.equipamento.ip == null) {
       return false;
     } else {
       this.cliente.equipamento = this.equipamento;
     }
-    if (this.cliente.contato.telefone == null && this.cliente.contato.email == null) {
+    if (this.contatoCliente.telefone == null && this.contatoCliente.email == null) {
       return false;
     } else {
       this.cliente.contato = this.contatoCliente;
