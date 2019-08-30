@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Desafio Nava</title>
+  <script>
+    // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
+        var forms = document.getElementsByClassName('needs-validation');
+        // Faz um loop neles e evita o envio
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+</head>
+<body>
+<nav class="p-3 mb-2 bg-info text-white col-12">
+  <a class="text-white" href="http://nava.com.br/" target="_blank" style="text-decoration:none;">
+    <b style="text-decoration: none; border-bottom: 3px solid black; border-color: white;">NAVA</b> - Technology for business
+  </a>
+</nav>
+<br>
+<br>
+<div class="container">
+  <form class="needs-validation" novalidate>
+    <div class="row">
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">Cliente:</label>
+        <input name="nome" type="text" class="form-control" [(ngModel)]="cliente.nome">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">CNPJ:</label>
+        <input name="cnpj" type="text" class="form-control"
+               [(ngModel)]="cliente.cnpj">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">Email / Cliente:</label>
+        <input name="emailCliente" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               [(ngModel)]="contatoCliente.email">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">Telefone / Cliente:</label>
+        <input name="telefoneCliente" type="text" class="form-control"
+               [(ngModel)]="contatoCliente.telefone">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">Equipamento:</label>
+        <input name="equipamento" type="text" class="form-control"
+               [(ngModel)]="equipamento.nome">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">IP:</label>
+        <input name="ip" type="text" class="form-control"
+               [(ngModel)]="equipamento.ip">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">E-mail / Equipamento:</label>
+        <input name="emailEquipamento" type="email" class="form-control" aria-describedby="emailHelp"
+               [(ngModel)]="contatoEquipamento.email">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+
+      <div class="form-group col-3">
+        <label for="exampleInputEmail1">Telefone / Equipamento:</label>
+        <input name="telefoneEquipamento" type="text" class="form-control"
+               [(ngModel)]="contatoEquipamento.telefone">
+        <div class="invalid-feedback">
+          Campo obrigatório!
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="cadastrar()">Cadastrar</button>
+  </form>
+  <br><br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Cliente</th>
+      <th>CNPJ</th>
+      <th>E-mail / Cliente</th>
+      <th>Telefone / Cliente</th>
+      <th>Equipamento</th>
+      <th>IP</th>
+      <th>Ação</th>
+    </tr>
+
+    <tr *ngFor="let cliente of clientes">
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.cnpj}}</td>
+      <td>{{cliente.contato.email}}</td>
+      <td>{{cliente.contato.telefone}}</td>
+      <td>{{cliente.equipamento.nome}}</td>
+      <td>{{cliente.equipamento.ip}}</td>
+      <td><button type="button" class="btn btn-danger" title="Deletar registro" (click)="remover(cliente.id)">-</button></td>
+    </tr>
+  </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
