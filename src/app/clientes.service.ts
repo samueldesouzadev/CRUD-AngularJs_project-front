@@ -12,15 +12,15 @@ export class ClientesService {
   }
 
   listarClientes(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/cliente');
+    return this.http.get('http://localhost:8080/cliente/findAll');
   }
 
   cadastrarCliete(cliente: ClienteModel): Observable<any> {
-    return this.http.put('http://localhost:8080/api/cliente', cliente);
+    return this.http.put('http://localhost:8080/cliente/edit', cliente);
   }
 
   removerCliente(id: any): Observable<any> {
-    return this.http.delete('http://localhost:8080/api/cliente/'.concat(id));
+    return this.http.delete('http://localhost:8080/cliente/delete'.concat(id));
   }
 
 
