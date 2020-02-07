@@ -16,7 +16,7 @@ export class ClientesService {
   }
 
   cadastrarCliete(cliente: ClienteModel): Observable<any> {
-    return this.http.put('http://localhost:8080/cliente/edit', cliente);
+    return this.http.post('http://localhost:8080/cliente/save', cliente);
   }
 
   removerCliente(id: any): Observable<any> {

@@ -26,8 +26,8 @@
                [(ngModel)]="cliente.cnpj">
         <div class="invalid-feedback">
           Campo obrigatório!
-        </div>
-      </div>
+    </div>
+</div>
 
       <div class="form-group col-3">
         <label for="exampleInputEmail1">Email / Cliente:</label>
@@ -48,45 +48,45 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="form-group col-3">
-        <label for="exampleInputEmail1">Equipamento:</label>
-        <input name="equipamento" type="text" class="form-control"
-               [(ngModel)]="equipamento.nome">
-        <div class="invalid-feedback">
-          Campo obrigatório!
+    <div class="list-group">
+      <div class="row">
+        <div class="form-group col-3">
+          <label for="exampleInputEmail1">Equipamento:</label>
+          <input name="equipamento" type="text" class="form-control"
+                 [(ngModel)]="equipamento.nome">
+          <div class="invalid-feedback">
+            Campo obrigatório!
+          </div>
         </div>
-      </div>
 
-      <div class="form-group col-3">
-        <label for="exampleInputEmail1">IP:</label>
-        <input name="ip" type="text" class="form-control"
-               [(ngModel)]="equipamento.ip">
-        <div class="invalid-feedback">
-          Campo obrigatório!
+        <div class="form-group col-3">
+          <label for="exampleInputEmail1">IP:</label>
+          <input name="ip" type="text" class="form-control"
+                 [(ngModel)]="equipamento.ip">
+          <div class="invalid-feedback">
+            Campo obrigatório!
+          </div>
         </div>
-      </div>
 
-      <div class="form-group col-3">
-        <label for="exampleInputEmail1">E-mail / Equipamento:</label>
-        <input name="emailEquipamento" type="email" class="form-control" aria-describedby="emailHelp"
-               [(ngModel)]="contatoEquipamento.email">
-        <div class="invalid-feedback">
-          Campo obrigatório!
+        <div class="form-group col-3">
+          <label for="exampleInputEmail1">E-mail / Equipamento:</label>
+          <input name="emailEquipamento" type="email" class="form-control" aria-describedby="emailHelp"
+                 [(ngModel)]="contatoEquipamento.email">
+          <div class="invalid-feedback">
+            Campo obrigatório!
+          </div>
         </div>
-      </div>
 
-      <div class="form-group col-3">
-        <label for="exampleInputEmail1">Telefone / Equipamento:</label>
-        <input name="telefoneEquipamento" type="text" class="form-control"
-               [(ngModel)]="contatoEquipamento.telefone">
-        <div class="invalid-feedback">
-          Campo obrigatório!
+        <div class="form-group col-3">
+          <label for="exampleInputEmail1">Telefone / Equipamento:</label>
+          <input name="telefoneEquipamento" type="text" class="form-control"
+                 [(ngModel)]="contatoEquipamento.telefone">
+          <div class="invalid-feedback">
+            Campo obrigatório!
+          </div>
         </div>
       </div>
     </div>
-
     <button type="submit" class="btn btn-success" (click)="cadastrar()">Cadastrar</button>
   </form>
   <br><br>

@@ -6,5 +6,5 @@ export class ClienteModel {
   nome: string;
   cnpj: string;
   contato: ContatoModel;
-  equipamento: EquipamentoModel;
+  equipamentoList: [EquipamentoModel];
 }

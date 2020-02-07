@@ -61,7 +61,11 @@ export class ClientesComponent implements OnInit {
     if (this.equipamento.nome == null && this.equipamento.ip == null) {
       return false;
     } else {
-      this.cliente.equipamento = this.equipamento;
+      let equipamento;
+      // tslint:disable-next-line:forin
+      for (equipamento in this.cliente.equipamentoList) {
+        equipamento = this.equipamento;
+      }
     }
     if (this.contatoCliente.telefone == null && this.contatoCliente.email == null) {
       return false;
